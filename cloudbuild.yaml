@@ -1,0 +1,31 @@
+steps:
+- name: 'gcr.io/cloud-builders/git'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - 'git clone https://github.com/rutwiksquareops/sample-app-accountill-nodejs.git'
+
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - 'cd sample-app-accountill-nodejs && ls'
+
+- name: 'gcr.io/cloud-builders/npm'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - 'cd sample-app-accountill-nodejs && npm install'
+
+- name: 'gcr.io/cloud-builders/npm'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - 'cd sample-app-accountill-nodejs'
+  - 'npm start'
+
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - 'gcloud app deploy'
