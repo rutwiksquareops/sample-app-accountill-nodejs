@@ -21,8 +21,7 @@ steps:
   entrypoint: 'bash'
   args:
   - '-c'
-  - 'cd sample-app-accountill-nodejs'
-  - 'npm start'
+  - 'cd sample-app-accountill-nodejs && npm start'
 
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
